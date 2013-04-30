@@ -59,7 +59,7 @@
       var span = document.querySelector('span');
       var picker = require('colorpicker');
       picker = picker(el);
-      picker.freeze(1);
+      picker.freeze(500);
 
       picker.on('pick', function(){
         span.innerText = el.style.background;
