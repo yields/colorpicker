@@ -19,6 +19,36 @@ picker.on('pick', function(){
 });
 ```
 
+## API
+
+### new Picker(el)
+
+Initialize a new ColorPicker on `el`.
+
+### picker.bind()
+
+bind events.
+
+### picker.freeze(ms)
+
+How much time in `ms` should the picker freeze after a click happened.
+
+### picker.refresh()
+
+The method should be called if `el` height or width changes.
+
+### picker.move(y, x)
+
+Move to `y, x`, this will also change the color.
+
+### picker.color({ hue, sat, lit })
+
+Set the color manually.
+
+### picker.unbind()
+
+Unbind all events.
+
 ## License
 
   MIT

@@ -56,6 +56,17 @@ Picker.prototype.bind = function(){
 };
 
 /**
+ * Unbind events.
+ * 
+ * @return {Picker}
+ */
+
+Picker.prototype.unbind = function(){
+  this.events.unbind();
+  return this;
+};
+
+/**
  * on-click.
  */
 
