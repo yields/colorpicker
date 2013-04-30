@@ -1,1 +1,70 @@
-My Page
+<!doctype html>
+<html>
+  <head>
+    <title>colorpicker</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <style>
+
+      body {
+        width: 300px;
+        margin: 30px auto;
+        font-size: 12px;
+        font-family: 'Open Sans', 'Lucida Grande', 'Segoe UI', sans-serif;
+        text-shadow: 0 1px 2px #f0f0f0;
+        color: #666;
+      }
+
+      div:first-child {
+        box-shadow: 0 1px 2px #ddd;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+        border-radius: 500px;
+      }
+
+      span {
+        display: block;
+        margin: 20px auto;
+        width: 200px;
+        text-align: center;
+        color: #666;
+      }
+
+      .explain {
+        margin-top: 50px;
+        border-top: 1px solid #ddd;
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div></div>
+    <span></span>
+    <div class='explain'>
+      <p>
+        Use you'r mousewheel for saturation,
+        a click will pick a color.
+      </p>
+    </div>
+
+
+    <script src='build/build.js'></script>
+    <script>
+      var el = document.querySelector('div:first-child');
+      var span = document.querySelector('span');
+      var picker = require('colorpicker');
+      picker = picker(el);
+
+      picker.on('pick', function(){
+        span.innerText = el.style.background;
+      });
+
+      span.innerText = el.style.background;
+    </script>
+  </body>
+</html>
