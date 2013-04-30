@@ -24,6 +24,7 @@ function Picker(el){
   if (!el) throw new TypeError('colorpicker() requires an element');
   this._color = {};
   this.el = el;
+  this.freeze(1000);
   this.bind();
   this.refresh();
   this.color({
@@ -60,7 +61,7 @@ Picker.prototype.bind = function(){
 
 Picker.prototype.onclick = function(e){
   e.preventDefault();
-  this.abort = 1000 + new Date().getTime();
+  this.await = this.freeze() + new Date().getTime();
   this.emit('pick');
 };
 
@@ -69,9 +70,9 @@ Picker.prototype.onclick = function(e){
  */
 
 Picker.prototype.onmousemove = function(e){
-  var abort = this.abort && this.abort > new Date();
-  if (abort) return;
-  this.abort = null;
+  var await = this.await && this.await > new Date();
+  if (await) return;
+  this.await = null;
   this.move(e.pageY, e.pageX);
 };
 
@@ -96,6 +97,19 @@ Picker.prototype.onmousewheel = function(e){
 
 Picker.prototype.onmouseout = function(){
   this.abort = null;
+};
+
+/**
+ * Set / get freeze time after a click to `ms`.
+ * 
+ * @param {Number} ms [1000]
+ * @return {Picker}
+ */
+
+Picker.prototype.freeze = function(ms){
+  if (!ms) return this._freeze;
+  this._freeze = ms;
+  return this;
 };
 
 /**
