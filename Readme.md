@@ -1,9 +1,9 @@
 
 # colorpicker
 
-  simple color picker.
+  simple color picker, see the [demo](http://yields.github.io/colorpicker/index.html).
 
-  ![colorpicker](http://f.cl.ly/items/0F142B1S0g0Z44282q3s/Screen%20Shot%202013-04-30%20at%205.13.54%20PM.png)
+  [![colorpicker](http://f.cl.ly/items/0F142B1S0g0Z44282q3s/Screen%20Shot%202013-04-30%20at%205.13.54%20PM.png)](http://yields.github.io/colorpicker/index.html)
 
 ## Installation
 
