@@ -3,7 +3,7 @@
   "repo": "yields/colorpicker",
   "demo": "gh-pages",
   "description": "simple color picker.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "keywords": ["colorpicker"],
   "dependencies": {
     "component/emitter": "*",
