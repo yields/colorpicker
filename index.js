@@ -150,13 +150,11 @@ Picker.prototype.move = function(y, x){
   x = Math.max(0, x - this.rect.left);
   y /= this.rect.height;
   x /= this.rect.width;
-  var color = this.color({
+
+  return this.color({
     hue: x * 360,
     lit: y * 100
-  });
-
-  this.emit('moved');
-  return color;
+  });;
 };
 
 /**
@@ -174,5 +172,7 @@ Picker.prototype.color = function(obj){
     + obj.sat + '%, '
     + obj.lit + '%, '
     + 1 + ')';
+
+  this.emit('updated');
   return this;
 };
