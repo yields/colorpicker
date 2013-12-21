@@ -15,7 +15,7 @@ module.exports = Picker;
 
 /**
  * Initialize new `Picker` with `el`.
- * 
+ *
  * @param {Element} el
  */
 
@@ -42,7 +42,7 @@ emitter(Picker.prototype);
 
 /**
  * Bind events.
- * 
+ *
  * @return {Picker}
  */
 
@@ -57,7 +57,7 @@ Picker.prototype.bind = function(){
 
 /**
  * Unbind events.
- * 
+ *
  * @return {Picker}
  */
 
@@ -112,7 +112,7 @@ Picker.prototype.onmouseout = function(){
 
 /**
  * Set / get freeze time after a click to `ms`.
- * 
+ *
  * @param {Number} ms [1000]
  * @return {Picker}
  */
@@ -125,10 +125,10 @@ Picker.prototype.freeze = function(ms){
 
 /**
  * Refresh.
- * 
+ *
  * the method should be called every
  * time the `el` changes height or width.
- * 
+ *
  * @return {Picker}
  */
 
@@ -139,7 +139,7 @@ Picker.prototype.refresh = function(){
 
 /**
  * Pick a color where `y`, `x`.
- * 
+ *
  * @param {Number} y
  * @param {Number} x
  * @return {Picker}
@@ -150,15 +150,18 @@ Picker.prototype.move = function(y, x){
   x = Math.max(0, x - this.rect.left);
   y /= this.rect.height;
   x /= this.rect.width;
-  return this.color({
+  var color = this.color({
     hue: x * 360,
     lit: y * 100
   });
+
+  this.emit('moved');
+  return color;
 };
 
 /**
  * Set / get color to `obj`.
- * 
+ *
  * @param {Object} obj
  * @return {Object|Picker}
  */
@@ -173,5 +176,3 @@ Picker.prototype.color = function(obj){
     + 1 + ')';
   return this;
 };
-
-
