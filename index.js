@@ -85,7 +85,6 @@ Picker.prototype.onmousemove = function(e){
   if (await) return;
   this.await = null;
   this.move(e.pageY, e.pageX);
-  this.emit('moved');
 };
 
 /**
@@ -151,10 +150,13 @@ Picker.prototype.move = function(y, x){
   x = Math.max(0, x - this.rect.left);
   y /= this.rect.height;
   x /= this.rect.width;
-  return this.color({
+  var color = this.color({
     hue: x * 360,
     lit: y * 100
   });
+
+  this.emit('moved');
+  return color;
 };
 
 /**
